@@ -504,488 +504,130 @@
 </style>
 </head>
 <body>
-
 <div class="layout">
-
-  <!-- ═══ SIDEBAR ═══ -->
   <aside class="sidebar">
     <div class="sidebar-brand">
       <div class="brand-name">BiTT Assistant</div>
-      <div class="brand-sub">دليل التشغيل — النسخة 0.1</div>
+      <div class="brand-sub">دليل تشغيل النسخة العامة — 0.1.0</div>
     </div>
-
     <div class="nav-section-label">المحتويات</div>
-
-    <a class="nav-link active" href="#overview">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-      نظرة عامة
-    </a>
-    <a class="nav-link" href="#requirements">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      المتطلبات
-    </a>
-    <a class="nav-link" href="#install">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      التثبيت
-    </a>
-    <a class="nav-link" href="#first-use">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-      الاستخدام الأول
-    </a>
-    <a class="nav-link" href="#screens">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      شاشات التطبيق
-    </a>
-    <a class="nav-link" href="#faq">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-      أسئلة شائعة
-    </a>
-    <a class="nav-link" href="#errors">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      رسائل الخطأ
-    </a>
+    <a class="nav-link active" href="#overview">نظرة عامة</a>
+    <a class="nav-link" href="#requirements">المتطلبات</a>
+    <a class="nav-link" href="#install">التثبيت والتشغيل</a>
+    <a class="nav-link" href="#first-use">الإعداد والاستخدام الأول</a>
+    <a class="nav-link" href="#screens">وظائف التطبيق</a>
+    <a class="nav-link" href="#privacy">البيانات والأمان</a>
+    <a class="nav-link" href="#faq">أسئلة شائعة</a>
+    <a class="nav-link" href="#errors">حل المشكلات</a>
   </aside>
-
-  <!-- ═══ MAIN ═══ -->
   <main class="main">
-
-    <!-- HERO -->
     <div class="hero">
       <div>
         <div class="hero-title">BiTT Assistant</div>
-        <div class="hero-sub">
-          أداة مساعد معلم التقنية<br>
-          إنشاء مجلدات الطلبة واستيراد قوائم الصفوف في مختبر الحاسوب
-        </div>
+        <div class="hero-sub">مساعد معلم التقنية لتنظيم مجلدات الطلبة وأعمالهم، وإدارة الشعب والأجهزة والمشاريع وبطاقات التقويم.</div>
       </div>
-      <div class="hero-badge">
-        <span class="hero-badge-num">0.1</span>
-        <span class="hero-badge-label">نسخة تجريبية</span>
-      </div>
+      <div class="hero-badge"><span class="hero-badge-num">0.1.0</span><span class="hero-badge-label">نسخة المعلمين</span></div>
     </div>
 
-    <!-- ═══ 1. OVERVIEW ═══ -->
     <section class="section" id="overview">
-      <div class="section-header">
-        <div class="section-num">1</div>
-        <h2 class="section-title">ما هو BiTT Assistant</h2>
-      </div>
-
-      <p style="color:var(--text-muted); margin-bottom:16px;">
-        BiTT Assistant (Bokaremo IT Tools) أداة مكتبية تعمل على Windows تُمكّن معلم التقنية من إعداد مجلدات الطلبة على أجهزة المختبر بضغطة واحدة، بدلًا من إنشاء كل مجلد يدويًا.
-      </p>
-
-      <div class="req-grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:20px;">
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div>
-            <div class="req-label">إنشاء المجلدات</div>
-            <div class="req-value">لكل طالب تلقائيًا</div>
-          </div>
-        </div>
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div>
-            <div class="req-label">استيراد القوائم</div>
-            <div class="req-value">Excel أو PDF وزارة</div>
-          </div>
-        </div>
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div>
-            <div class="req-label">بيئة التشغيل</div>
-            <div class="req-value">Windows 11 فقط</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 2. REQUIREMENTS ═══ -->
-    <section class="section" id="requirements">
-      <div class="section-header">
-        <div class="section-num">2</div>
-        <h2 class="section-title">متطلبات التشغيل</h2>
-      </div>
-
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">نظرة عامة</h2></div>
+      <p style="color:var(--text-muted);margin-bottom:14px">تطبيق ويندوز يعمل محليًا لمساعدة معلم تقنية المعلومات في تجهيز قوائم الشعب، توزيع الطلبة على أجهزة المختبر، إنشاء مجلداتهم، وإعداد نماذج العمل والتقارير.</p>
+      <div class="callout callout-info"><span>ابدأ من إعدادات التطبيق لتسجيل بيانات المدرسة والعام والفصل الدراسي، ثم حدد موقع إنشاء المجلدات قبل استيراد القوائم.</span></div>
       <div class="req-grid">
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div>
-            <div class="req-label">نظام التشغيل</div>
-            <div class="req-value">Windows 11</div>
-          </div>
-        </div>
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </div>
-          <div>
-            <div class="req-label">WebView2</div>
-            <div class="req-value">مُضمَّن في Windows 11</div>
-          </div>
-        </div>
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <div>
-            <div class="req-label">مساحة القرص</div>
-            <div class="req-value">150 ميجابايت</div>
-          </div>
-        </div>
-        <div class="req-item">
-          <div class="req-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <div>
-            <div class="req-label">الصلاحيات</div>
-            <div class="req-value">مدير النظام (Administrator)</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="callout callout-warn" style="margin-top:16px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <span>التطبيق لا يعمل على Windows 10 أو أقدم بسبب اعتماده على WebView2 المدمج في Windows 11.</span>
+        <div class="req-item"><div><div class="req-label">إنشاء المجلدات</div><div class="req-value">شجرة كاملة أو شعبة واحدة</div></div></div>
+        <div class="req-item"><div><div class="req-label">قوائم الطلبة</div><div class="req-value">Excel وPDF المدعوم</div></div></div>
+        <div class="req-item"><div><div class="req-label">التشغيل</div><div class="req-value">نسخة تثبيت أو محمولة</div></div></div>
+        <div class="req-item"><div><div class="req-label">مكان البيانات</div><div class="req-value">على جهاز المعلم وموقع التخزين المختار</div></div></div>
       </div>
     </section>
 
-    <!-- ═══ 3. INSTALL ═══ -->
+    <section class="section" id="requirements">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">المتطلبات</h2></div>
+      <div class="req-grid">
+        <div class="req-item"><div><div class="req-label">نظام التشغيل</div><div class="req-value">Windows 10 أو Windows 11</div></div></div>
+        <div class="req-item"><div><div class="req-label">Python</div><div class="req-value">غير مطلوب لتشغيل ملفات EXE</div></div></div>
+        <div class="req-item"><div><div class="req-label">نافذة التطبيق</div><div class="req-value">WebView2 لعرض النافذة المدمجة</div></div></div>
+        <div class="req-item"><div><div class="req-label">مساحة التخزين</div><div class="req-value">بحسب عدد الطلبة والملفات</div></div></div>
+      </div>
+      <div class="callout callout-tip"><span>إذا لم تتوفر WebView2 فقد يفتح التطبيق في المتصفح بدل النافذة المستقلة. اختر موقعًا محليًا أو قرصًا متصلًا يمكن الكتابة عليه.</span></div>
+    </section>
+
     <section class="section" id="install">
-      <div class="section-header">
-        <div class="section-num">3</div>
-        <h2 class="section-title">التثبيت</h2>
-      </div>
-
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">التثبيت والتشغيل</h2></div>
       <div class="steps">
-        <div class="step">
-          <div class="step-line">
-            <div class="step-dot">1</div>
-          </div>
-          <div class="step-body">
-            <div class="step-title">تشغيل المثبّت</div>
-            <div class="step-desc">افتح ملف <strong>BittAssistant-Setup.exe</strong> بضغط مزدوج. إذا ظهر تحذير SmartScreen اضغط "معلومات إضافية" ثم "تشغيل على أي حال".</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line">
-            <div class="step-dot">2</div>
-          </div>
-          <div class="step-body">
-            <div class="step-title">اختيار مجلد التثبيت</div>
-            <div class="step-desc">المسار الافتراضي: <code style="font-size:12px;background:#EEF3F2;padding:2px 6px;border-radius:4px;">C:\Program Files\BiTT Assistant</code> — يمكن تغييره قبل الضغط على "تثبيت".</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line">
-            <div class="step-dot">3</div>
-          </div>
-          <div class="step-body">
-            <div class="step-title">إتمام التثبيت</div>
-            <div class="step-desc">ستظهر أيقونة BiTT Assistant على سطح المكتب بعد اكتمال التثبيت.</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line">
-            <div class="step-dot">4</div>
-          </div>
-          <div class="step-body">
-            <div class="step-title">تشغيل التطبيق</div>
-            <div class="step-desc">انقر نقرًا مزدوجًا على الأيقونة. ستنفتح نافذة التطبيق خلال ثوانٍ.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="callout callout-tip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <span>إذا احتجت لإلغاء التثبيت: لوحة التحكم ← البرامج والميزات ← BiTT Assistant ← إلغاء التثبيت.</span>
+        <div class="step"><div class="step-line"><div class="step-dot">1</div></div><div class="step-body"><div class="step-title">اختر طريقة التشغيل</div><div class="step-desc">ملف BittAssistant-Setup.exe يثبت التطبيق في ويندوز ويضيف اختصارًا. أما BittAssistant-Portable.exe فيعمل مباشرة من دون تثبيت.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">2</div></div><div class="step-body"><div class="step-title">شغّل النسخة العامة</div><div class="step-desc">نزّل ملفات النسخة العامة من قسم Releases في المستودع. لا تستخدم نسخة الماستر لأجهزة المعلمين.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">3</div></div><div class="step-body"><div class="step-title">أغلق التطبيق بطريقة صحيحة</div><div class="step-desc">عند تشغيل التطبيق في المتصفح استخدم زر «إغلاق التطبيق» داخل القائمة قبل إغلاق النافذة، حتى يتوقف الخادم المحلي.</div></div></div>
       </div>
     </section>
 
-    <!-- ═══ 4. FIRST USE ═══ -->
     <section class="section" id="first-use">
-      <div class="section-header">
-        <div class="section-num">4</div>
-        <h2 class="section-title">الاستخدام الأول — خطوة بخطوة</h2>
-      </div>
-
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">الإعداد والاستخدام الأول</h2></div>
       <div class="steps">
-        <div class="step">
-          <div class="step-line"><div class="step-dot">1</div></div>
-          <div class="step-body">
-            <div class="step-title">تهيئة موقع الإنشاء</div>
-            <div class="step-desc">في شاشة "الإعداد" حدد القرص أو المجلد الجذر الذي ستُنشأ فيه مجلدات الطلبة (مثال: <code style="font-size:12px;background:#EEF3F2;padding:2px 6px;border-radius:4px;">D:\Students</code>). التطبيق لن يمسح أي مجلد موجود.</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line"><div class="step-dot">2</div></div>
-          <div class="step-body">
-            <div class="step-title">استيراد قائمة الطلبة</div>
-            <div class="step-desc">اضغط "استيراد القائمة" وحدد ملف الكشف بأحد الصيغتين:
-              <ul style="margin-top:8px; list-style:none; display:flex; flex-direction:column; gap:4px;">
-                <li style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-muted);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#103B36" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  ملف Excel (.xlsx / .xls) — كشف الصف المصدّر من النظام
-                </li>
-                <li style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-muted);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#103B36" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  ملف PDF وزارة التربية — كشف الصف المطبوع
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line"><div class="step-dot">3</div></div>
-          <div class="step-body">
-            <div class="step-title">مراجعة القائمة المستوردة</div>
-            <div class="step-desc">ستظهر أسماء الطلبة في الجدول. تحقق من صحتها قبل الإنشاء. يمكنك حذف أي طالب بالنقر على الصف.</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line"><div class="step-dot">4</div></div>
-          <div class="step-body">
-            <div class="step-title">إضافة الصفوف والشعب</div>
-            <div class="step-desc">في شاشة "الصفوف" أضف الصفوف والشعب التي تُدرّسها. كل شعبة ستحصل على مجلدها الخاص داخل موقع الإنشاء.</div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-line"><div class="step-dot">5</div></div>
-          <div class="step-body">
-            <div class="step-title">إنشاء المجلدات</div>
-            <div class="step-desc">اضغط "إنشاء المجلدات". ستُنشأ مجلدات الطلبة فورًا. شريط التقدم يُظهر عدد المجلدات المُنشأة في الوقت الفعلي.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-line"><div class="step-dot">1</div></div><div class="step-body"><div class="step-title">بيانات المدرسة والفصل</div><div class="step-desc">من «الإعدادات» أدخل اسم المدرسة والمعلم والعام الدراسي والفصل. تستخدم الشاشات والنماذج هذه القيم تلقائيًا.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">2</div></div><div class="step-body"><div class="step-title">حدد موقع إنشاء المجلدات</div><div class="step-desc">اختر القرص أو المجلد الذي ستنشأ داخله شجرة الطلبة. تأكد أن الموقع متاح وأن لديك صلاحية الكتابة عليه.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">3</div></div><div class="step-body"><div class="step-title">استورد قوائم الطلبة</div><div class="step-desc">استورد كشفًا مدعومًا لكل شعبة، أو استخدم الاستيراد الجماعي لقراءة عدة ملفات. راجع جميع الأسماء وصححها قبل الحفظ، بما فيها الأسماء التي لم تظهر عليها ملاحظة مراجعة.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">4</div></div><div class="step-body"><div class="step-title">راجع الصفوف والشعب</div><div class="step-desc">أنشئ الشعب التي تدرسها واربط كل كشف بالشعبة الصحيحة. رمز الشعبة الاختيارية في بعض كشوف الصفين 11 و12 لا يعني وجود شعبة أساسية إضافية؛ راجع التسمية قبل إنشاء المجلدات.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">5</div></div><div class="step-body"><div class="step-title">وزّع الطلبة على أجهزة المختبر</div><div class="step-desc">راجع التوزيع التلقائي، ثم عدّل جهاز الطالب عند الحاجة. احفظ التغييرات قبل إنشاء الشجرة أو تجهيز حزمة النشر.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">6</div></div><div class="step-body"><div class="step-title">عاين الشجرة ثم أنشئها</div><div class="step-desc">اختر إنشاء الشجرة الشاملة أو شعبة واحدة، افحص العدد والمسار والمجلدات الجديدة والموجودة، ثم نفّذ الإنشاء. بعده يظهر المسار؛ اضغطه لفتح الشجرة في مستكشف الملفات.</div></div></div>
       </div>
-
-      <div class="callout callout-info">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <span>التطبيق يتذكر موقع الإنشاء وقائمة الصفوف عند إعادة التشغيل — لا حاجة لإعادة الإعداد في كل مرة.</span>
-      </div>
+      <div class="callout callout-warn"><span>الإنشاء لا يحذف المجلدات الموجودة ولا يستبدل محتوياتها. راجع المعاينة والمسار قبل التنفيذ.</span></div>
     </section>
 
-    <!-- ═══ 5. SCREENS ═══ -->
     <section class="section" id="screens">
-      <div class="section-header">
-        <div class="section-num">5</div>
-        <h2 class="section-title">شاشات التطبيق</h2>
-      </div>
-
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">وظائف التطبيق</h2></div>
       <div class="screens-grid">
-        <div class="screen-card">
-          <div class="screen-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span class="screen-header-title">الرئيسية</span>
-          </div>
-          <div class="screen-body">
-            <p>نظرة عامة على الحالة الحالية — عدد الطلبة والمجلدات والصفوف.</p>
-            <ul>
-              <li>ملخص آخر عملية إنشاء</li>
-              <li>اختصارات الوصول السريع</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="screen-card">
-          <div class="screen-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span class="screen-header-title">استيراد القائمة</span>
-          </div>
-          <div class="screen-body">
-            <p>رفع ملف الكشف وعرض الأسماء في جدول قابل للتعديل.</p>
-            <ul>
-              <li>دعم Excel و PDF وزارة</li>
-              <li>حذف الطلبة قبل الإنشاء</li>
-              <li>عرض الأخطاء في الاستيراد</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="screen-card">
-          <div class="screen-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <span class="screen-header-title">الصفوف والشعب</span>
-          </div>
-          <div class="screen-body">
-            <p>إدارة الصفوف والشعب التي يُدرّسها المعلم.</p>
-            <ul>
-              <li>إضافة وحذف الشعب</li>
-              <li>ربط كل شعبة بكشف طلبتها</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="screen-card">
-          <div class="screen-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-            <span class="screen-header-title">إنشاء المجلدات</span>
-          </div>
-          <div class="screen-body">
-            <p>تنفيذ عملية الإنشاء مع شريط تقدم فوري.</p>
-            <ul>
-              <li>معاينة ما سيُنشأ قبل البدء</li>
-              <li>تقرير النتائج بعد الاكتمال</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="screen-card" style="grid-column: 1 / -1;">
-          <div class="screen-header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-            <span class="screen-header-title">الإعدادات</span>
-          </div>
-          <div class="screen-body">
-            <p>تخصيص موقع الإنشاء وخيارات التسمية.</p>
-            <ul style="column-count:2; gap:16px;">
-              <li>تغيير موقع الإنشاء الجذري</li>
-              <li>صيغة تسمية المجلدات</li>
-              <li>اللغة (عربي / إنجليزي)</li>
-              <li>إعادة ضبط الإعدادات</li>
-            </ul>
-          </div>
-        </div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">قوائم الطلبة والصفوف</span></div><div class="screen-body"><p>استيراد كشوف الشعب وربطها بالصف الصحيح، ثم مراجعة الأسماء والأعداد.</p><ul><li>استيراد ملف واحد أو عدة ملفات</li><li>تصحيح الأسماء وحفظها في بيانات الشعبة</li><li>مراجعة الشعب المحفوظة وتوزيعها</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">توزيع الأجهزة</span></div><div class="screen-body"><p>تعيين الأجهزة للطلبة ومراجعة التوزيع قبل إنشاء المجلدات أو نشر الحزمة.</p><ul><li>إعادة التوزيع أو التعديل اليدوي</li><li>إظهار الطلبة الذين لا يملكون جهازًا</li><li>نقل مجلد طالب بين أجهزة الشعبة وتحديث التوزيع المحفوظ؛ الحد الأقصى على الجهاز طالبين</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">إنشاء المجلدات وتخصيص الأيقونات</span></div><div class="screen-body"><p>أنشئ شجرة كل الشعب حسب الأجهزة أو مجلدات شعبة محددة.</p><ul><li>معاينة المسار وعدد المجلدات قبل التنفيذ</li><li>فتح مسار الشجرة بعد الإنشاء</li><li>اختيار أيقونات المجلدات وتطبيقها</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">النشر والتجميع</span></div><div class="screen-body"><p>جهّز حزمة لنسخ مجلدات الطلبة إلى أجهزة المختبر وجمع أعمالهم.</p><ul><li>النشر عبر مجلد شبكة أو فلاش USB</li><li>تشغيل أوامر النشر والتجميع عبر Veyon</li><li>استيراد وارد التجميع ومراجعة الأجهزة التي لم تسلّم</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">التقارير والتحليل</span></div><div class="screen-body"><p>التقارير مبنية على الشعب وتوزيع الأجهزة ووارد التجميع المحفوظ.</p><ul><li>دليل توزيع الطلبة على الأجهزة وطباعته</li><li>البحث عن طالب ومساره وجهازه</li><li>تقرير الأجهزة والملفات المستلمة</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">تهيئة وأرشفة</span></div><div class="screen-body"><p>الأرشفة تنقل أشجار الصفوف 1–11 إلى مجلد مؤرخ على القرص نفسه، ويبقى الصف 12 في موقعه. عاين قائمة النقل قبل التنفيذ.</p><ul><li>الأرشفة نقل وليست حذفًا</li><li>تهيئة التطبيق تمسح بيانات التطبيق المحلية؛ لا تحذف مجلدات الطلبة</li><li>أنشئ نسخة احتياطية من إعداداتك وقوائمك قبل التهيئة</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">استمارات المشاريع</span></div><div class="screen-body"><p>تُستخدم إعدادات العام والفصل العامة تلقائيًا. الأداة مخصصة للشعب التي تحتاج استمارات مشاريع.</p><ul><li>تخصيص أسماء المشروعات وصيغ الشعبة ورمز المجموعة</li><li>اختيار حجم المجموعة من طالب إلى خمسة</li><li>توزيع أبجدي تلقائي أو تحديد الأعضاء يدويًا؛ يرتب أعضاء كل مجموعة أبجديًا</li><li>معاينة الاستمارات وإنشاء ملفات Excel</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">بطاقة أعمال الطالب</span></div><div class="screen-body"><p>أداة مستقلة تقرأ سجل التقويم بصيغة XLSX وتنشئ بطاقة لكل اسم ودرجة في السجل، دون الحاجة إلى قوائم الطلبة داخل التطبيق.</p><ul><li>معاينة البطاقات وتحرير الدرجات المتاحة</li><li>اختيار نمط بطاقة لكل شعبة</li><li>طباعة البطاقات أو حفظها PDF</li></ul></div></div>
+        <div class="screen-card" style="grid-column:1/-1"><div class="screen-header"><span class="screen-header-title">حماية المجلدات</span></div><div class="screen-body"><p>تمنع الحماية الحذف العرضي مع الإبقاء على القراءة والكتابة. اختر المجلد والحساب، ابدأ بمعاينة العملية، واحتفظ بنسخة من الأذونات قبل التعديل. تتطلب ميزة الحماية نظام ملفات NTFS أو ReFS؛ وقد يطلب Windows حسابًا مسؤولًا لتغيير الأذونات.</p></div></div>
       </div>
     </section>
 
-    <!-- ═══ 6. FAQ ═══ -->
+    <section class="section" id="privacy">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">البيانات والأمان</h2></div>
+      <div class="callout callout-info"><span>قوائم الطلبة والإعدادات تحفظ محليًا على جهاز المعلم. مجلدات أعمال الطلبة تُنشأ في الموقع الذي تختاره. لا ترفع بيانات الطلبة إلى المستودع العام أو ترفقها عند الإبلاغ عن مشكلة.</span></div>
+      <p style="color:var(--text-muted);margin-top:12px">للحفاظ على بياناتك، احتفظ بنسخة احتياطية من إعدادات التطبيق وقوائم الشعب. عند الانتقال لجهاز آخر قد تحتاج إلى استيراد القوائم وإعادة تحديد موقع التخزين وتوزيع الأجهزة.</p>
+    </section>
+
     <section class="section" id="faq">
-      <div class="section-header">
-        <div class="section-num">6</div>
-        <h2 class="section-title">أسئلة شائعة</h2>
-      </div>
-
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          هل يحذف التطبيق المجلدات الموجودة مسبقًا؟
-          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="faq-a">لا. التطبيق يُنشئ المجلدات المفقودة فقط ولا يمسح أو يعدّل أي مجلد موجود. يمكن تشغيله مرات متعددة بأمان.</div>
-      </div>
-
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          ملف PDF الوزارة لا يستورد الأسماء صحيحة — ماذا أفعل؟
-          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="faq-a">تأكد أن الملف هو PDF وزارة التربية والتعليم سلطنة عُمان (ليس مسحًا ضوئيًا/scan). ملفات الـ scan لا تحتوي على نص قابل للقراءة. إذا تعذّر الاستيراد استخدم ملف Excel بدلًا منه.</div>
-      </div>
-
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          هل يمكن استخدامه على أكثر من جهاز في المختبر؟
-          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="faq-a">التطبيق يعمل على جهاز المعلم فقط. المجلدات تُنشأ على القرص المحدد في الإعدادات. إذا كانت أجهزة الطلبة موصولة بشبكة وشاركت نفس القرص فيمكن استخدامه.</div>
-      </div>
-
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          كيف أُحدّث التطبيق لنسخة أحدث؟
-          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="faq-a">شغّل ملف التثبيت الجديد مباشرة فوق النسخة الحالية — إعداداتك وقوائم الطلبة ستبقى كما هي.</div>
-      </div>
-
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">
-          لم تظهر نافذة التطبيق بعد النقر على الأيقونة
-          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="faq-a">انتظر 10 ثوان — التطبيق يحتاج لبضع ثوان ليبدأ. إذا لم تظهر النافذة، تحقق من شريط المهام السفلي. إذا استمرت المشكلة افتح مدير المهام وأنهِ أي عملية BiTT ثم أعد المحاولة.</div>
-      </div>
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">أسئلة شائعة</h2></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل يحتاج المعلم إلى Python أو بناء التطبيق؟</div><div class="faq-a">لا. نزّل ملف التثبيت أو النسخة المحمولة من Releases وشغّله مباشرة. خطوات البناء للمطورين فقط.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل يحذف إنشاء الشجرة مجلدات الطلبة الموجودة؟</div><div class="faq-a">لا. الإنشاء يضيف المجلدات الناقصة ولا يحذف أو يستبدل محتويات المجلد الموجود.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">أين أرى الشجرة التي تم إنشاؤها؟</div><div class="faq-a">يظهر مسار الشجرة في شاشة الإنشاء بعد اكتمال العملية. اضغط المسار لفتحه في مستكشف الملفات.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل تحتاج بطاقة أعمال الطالب إلى استيراد قوائم التطبيق؟</div><div class="faq-a">لا. تستورد الأداة سجل التقويم XLSX وتستخرج البطاقات من الأسماء والدرجات الموجودة فيه مباشرةً.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">لماذا لم تعمل حماية المجلدات؟</div><div class="faq-a">تحقق من أن القرص NTFS أو ReFS وأن حساب Windows يملك صلاحية تعديل الأذونات. راجع معاينة الحماية وسجل نسخ الأذونات، واستخدم حسابًا مسؤولًا إذا طلب Windows ذلك.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل أستطيع استخدام النشر دون شبكة؟</div><div class="faq-a">نعم. أنشئ حزمة USB من شاشة النشر والتجميع، وشغّل ملفات النشر والتجميع من الفلاش وفق التعليمات المعروضة داخل التطبيق.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">كيف أبلغ عن مشكلة؟</div><div class="faq-a">استخدم «تواصل المطور» داخل التطبيق، واكتب الخطوات التي أدت للمشكلة وأرفق لقطة شاشة بعد إخفاء أسماء الطلبة أو أي معلومات شخصية غير لازمة. البريد: mahmoud.isma3el@gmail.com.</div></div>
     </section>
 
-    <!-- ═══ 7. ERRORS ═══ -->
     <section class="section" id="errors">
-      <div class="section-header">
-        <div class="section-num">7</div>
-        <h2 class="section-title">رسائل الخطأ الشائعة</h2>
-      </div>
-
-      <table class="errors-table">
-        <thead>
-          <tr>
-            <th style="width:35%;">رسالة الخطأ</th>
-            <th>السبب</th>
-            <th style="width:35%;">الحل</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="err-code">صيغة الملف غير مدعومة</span></td>
-            <td>الملف ليس xlsx أو pdf</td>
-            <td>استخدم ملف Excel (.xlsx) أو PDF وزارة</td>
-          </tr>
-          <tr>
-            <td><span class="err-code">لم يُعثر على أسماء في الملف</span></td>
-            <td>جدول PDF فارغ أو مقطوع</td>
-            <td>جرّب ملف Excel بدلًا من PDF</td>
-          </tr>
-          <tr>
-            <td><span class="err-code">خطأ في الوصول للمجلد</span></td>
-            <td>مسار الإنشاء للقراءة فقط</td>
-            <td>غيّر موقع الإنشاء أو شغّل التطبيق كمدير</td>
-          </tr>
-          <tr>
-            <td><span class="err-code">المسار غير موجود</span></td>
-            <td>القرص المحدد غير متاح</td>
-            <td>تحقق من أن القرص متصل وافتح الإعدادات لاختيار مسار آخر</td>
-          </tr>
-          <tr>
-            <td><span class="err-code">لم يُضف أي طالب</span></td>
-            <td>القائمة فارغة بعد الاستيراد</td>
-            <td>استورد قائمة الطلبة أولًا قبل الإنشاء</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="section-header"><div class="section-num">8</div><h2 class="section-title">حل المشكلات</h2></div>
+      <table class="errors-table"><thead><tr><th>المشكلة</th><th>ما الذي تراجعه؟</th></tr></thead><tbody>
+        <tr><td>موقع الإنشاء غير محدد</td><td>افتح «موقع الإنشاء»، اختر قرصًا متاحًا، ثم ارجع إلى شاشة إنشاء المجلدات.</td></tr>
+        <tr><td>لا تظهر الشعبة في قائمة الإنشاء</td><td>تأكد من حفظ الشعبة وربط كشف الطلبة بها، ثم أعد فتح الشاشة.</td></tr>
+        <tr><td>أسماء أو شعب غير صحيحة</td><td>راجع كشف المصدر، وصحح الأسماء وربط الشعبة قبل إنشاء المجلدات.</td></tr>
+        <tr><td>فشل الحماية أو تعذر الوصول</td><td>افحص نظام الملفات وصلاحيات الحساب، ثم عاين العملية قبل المحاولة مرة أخرى.</td></tr>
+        <tr><td>لم تصل ملفات من أجهزة الطلبة</td><td>تحقق من تشغيل collect.bat على الأجهزة أو استيراد التجميع من الفلاش، ثم اضغط «تحديث» في شاشة النشر.</td></tr>
+      </tbody></table>
     </section>
 
-    <!-- FOOTER -->
     <footer class="page-footer">
-      <div>
-        <div class="footer-brand">BiTT Assistant · مساعد معلم التقنية</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">أداة تجريبية · تطوير Mahmoud Ismaiel · 2025</div>
-      </div>
-      <div class="footer-meta">
-        دليل التشغيل — النسخة 0.1<br>
-        Bokaremo IT Tools
-      </div>
+      <div><div class="footer-brand">BiTT Assistant · مساعد معلم التقنية</div><div style="font-size:11px;color:var(--text-muted);margin-top:4px">تطوير Mahmoud Ismaiel · 2025</div></div>
+      <div class="footer-meta">دليل تشغيل النسخة العامة · 0.1.0<br>Bokaremo IT Tools</div>
     </footer>
-
   </main>
 </div>
-
 <script>
-  // Active nav on scroll
-  const sections = document.querySelectorAll('.section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-
-  sections.forEach(s => observer.observe(s));
+  const sections=document.querySelectorAll('.section[id]');
+  const navLinks=document.querySelectorAll('.nav-link');
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`.nav-link[href="#${entry.target.id}"]`);if(active)active.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s=>observer.observe(s));
 </script>
 </body>
 </html>

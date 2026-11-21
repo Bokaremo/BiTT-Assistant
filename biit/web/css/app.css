@@ -628,3 +628,8 @@ button:disabled { cursor: not-allowed; }
   body:has(#cards-print-set) .student-card-meta { color: #111; }
 }
 @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+
+/* ---------- about and updates ---------- */
+.about-update-box { max-width: 760px; }
+.about-update-box > .help { margin-bottom: 14px; }
+.about-downloads { margin-top: 12px; }

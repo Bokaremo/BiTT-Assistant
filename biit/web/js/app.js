@@ -1350,7 +1350,86 @@
     }
   }
 
-  const views = { home: viewHome, location: viewLocation, settings: viewSettings, roster: viewRoster, sections: viewSections, devices: viewDevices, transfers: viewTransfers, treegen: viewTreegen, deploy: viewDeploy, reports: viewReports, maintenance: viewMaintenance, protection: viewProtection, projectForms: viewProjectForms, studentCards: viewStudentCards };
+  async function viewAbout() {
+    state = await api('GET', '/api/state');
+    const currentVersion = state.version || 'غير معروف';
+    main.innerHTML = `
+      <section class="view">
+        <header class="view-head">
+          <h1>حول التطبيق والتحديثات</h1>
+          <p>اعرف الإصدار المثبت وتحقق من وجود تحديث جديد، ثم نزّل النسخة المناسبة لجهازك.</p>
+        </header>
+        <div class="notice ok">${icon('info')}<div><strong>BiTT Assistant</strong><p>الإصدار المثبت: <bdi dir="ltr">${esc(currentVersion)}</bdi></p></div></div>
+        <fieldset class="fieldset about-update-box">
+          <legend>التحديثات</legend>
+          <p class="help">يتصل التحقق بخدمة GitHub عند طلبك فقط. يمكنك استخدام التطبيق دون إنترنت.</p>
+          <div id="update-result" class="notice warn">${icon('info')}<div>اضغط «تحقق من التحديثات» لمعرفة ما إذا كان إصدار أحدث متاحًا.</div></div>
+          <div id="update-downloads"></div>
+          <div class="actions">
+            <button class="btn" id="check-updates">${icon('refresh-cw')}تحقق من التحديثات</button>
+            <a class="btn ghost" href="https://github.com/Bokaremo/BiTT-Assistant/releases/latest" target="_blank" rel="noopener">${icon('download')}صفحة التنزيلات</a>
+          </div>
+          <p class="help">نسخة التثبيت مناسبة للتحديث المعتاد. النسخة المحمولة تُنزّل كملف مستقل ويمكن تشغيلها دون تثبيت.</p>
+        </fieldset>
+      </section>`;
+  }
+
+  function compareAppVersions(remote, local) {
+    const parts = (value) => {
+      const match = String(value || '').match(/\d+(?:\.\d+){1,3}/);
+      return match ? match[0].split('.').map(Number) : null;
+    };
+    const a = parts(remote), b = parts(local);
+    if (!a || !b) return null;
+    for (let i = 0; i < Math.max(a.length, b.length); i++) {
+      const left = a[i] || 0, right = b[i] || 0;
+      if (left !== right) return left > right ? 1 : -1;
+    }
+    return 0;
+  }
+
+  async function checkAppUpdates(button) {
+    const result = document.getElementById('update-result');
+    const downloads = document.getElementById('update-downloads');
+    if (!result || !downloads) return;
+    button.disabled = true;
+    result.className = 'notice warn';
+    result.innerHTML = `${icon('refresh-cw')}<div>جارٍ التحقق من أحدث إصدار…</div>`;
+    downloads.innerHTML = '';
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
+      let response;
+      try {
+        response = await fetch('https://api.github.com/repos/Bokaremo/BiTT-Assistant/releases/latest', {
+          headers: { Accept: 'application/vnd.github+json' }, signal: controller.signal,
+        });
+      } finally { clearTimeout(timeout); }
+      if (!response.ok) throw new Error('تعذر الوصول إلى خدمة الإصدارات الآن.');
+      const release = await response.json();
+      const latest = String(release.tag_name || release.name || '').replace(/^v/i, '');
+      const comparison = compareAppVersions(latest, state?.version);
+      if (!latest || comparison === null) throw new Error('تعذر قراءة رقم الإصدار المنشور.');
+      if (comparison > 0) {
+        result.className = 'notice warn';
+        result.innerHTML = `${icon('info')}<div><strong>يتوفر تحديث جديد: <bdi dir="ltr">${esc(latest)}</bdi></strong><p>الإصدار المثبت لديك <bdi dir="ltr">${esc(state.version)}</bdi>. اختر طريقة التنزيل المناسبة.</p></div>`;
+        downloads.innerHTML = `<div class="actions about-downloads">
+          <a class="btn" href="https://github.com/Bokaremo/BiTT-Assistant/releases/latest/download/BittAssistant-Setup.exe">${icon('download')}تنزيل نسخة التثبيت</a>
+          <a class="btn ghost" href="https://github.com/Bokaremo/BiTT-Assistant/releases/latest/download/BittAssistant-Portable.exe">تنزيل النسخة المحمولة</a>
+        </div>`;
+      } else {
+        result.className = 'notice ok';
+        result.innerHTML = `${icon('circle-check')}<div><strong>التطبيق محدّث</strong><p>الإصدار المثبت <bdi dir="ltr">${esc(state.version)}</bdi> هو أحدث إصدار منشور.</p></div>`;
+      }
+    } catch (error) {
+      result.className = 'notice bad';
+      result.innerHTML = `${icon('triangle-alert')}<div><strong>تعذر التحقق من التحديث</strong><p>${esc(error.message || 'تحقق من اتصال الإنترنت، أو افتح صفحة التنزيلات لاحقًا.')}</p></div>`;
+    } finally {
+      button.disabled = false;
+    }
+  }
+  const views = { home: viewHome, location: viewLocation, settings: viewSettings, roster: viewRoster, sections: viewSections, devices: viewDevices, transfers: viewTransfers, treegen: viewTreegen, deploy: viewDeploy, reports: viewReports, maintenance: viewMaintenance, protection: viewProtection, projectForms: viewProjectForms, studentCards: viewStudentCards, about: viewAbout,
+    ownerFiles: () => window.BIIT_OWNER_UI?.view() };
 
   async function show(name, keepScroll = false) {
     currentView = name;
@@ -1398,6 +1477,8 @@
 
     const btn = e.target.closest('button');
     if (!btn) return;
+
+    if (btn.id === 'check-updates') { await checkAppUpdates(btn); return; }
 
     // Folder protection
     if (btn.id === 'protect-browse') {

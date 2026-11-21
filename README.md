@@ -1,6 +1,6 @@
 # BiTT Assistant للمعلم
 
-[🌐 افتح دليل المعلم التفاعلي](https://bokaremo.github.io/BiTT-Assistant/) · [تنزيل أحدث إصدار](https://github.com/Bokaremo/BiTT-Assistant/releases/latest)
+[🌐 افتح دليل المعلم التفاعلي](https://bokaremo.github.io/BiTT-Assistant/) · [⬇ تنزيل نسخة التثبيت](https://github.com/Bokaremo/BiTT-Assistant/releases/latest/download/BittAssistant-Setup.exe) · [تنزيل النسخة المحمولة](https://github.com/Bokaremo/BiTT-Assistant/releases/latest/download/BittAssistant-Portable.exe) · [كل الإصدارات](https://github.com/Bokaremo/BiTT-Assistant/releases)
 
 ![BiTT Assistant — معاينة اجتماعية](docs/social-preview.jpg)
 

@@ -501,6 +501,14 @@
     .req-grid { grid-template-columns: 1fr; }
     .hero { grid-template-columns: 1fr; }
   }
+  .download-panel { margin: -20px 0 40px; padding: 18px 20px; background: var(--gold-light); border: 1px solid var(--gold); border-radius: 12px; }
+  .download-title { font-weight: 700; margin-bottom: 10px; color: var(--green); }
+  .download-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .download-link { display: inline-block; padding: 10px 16px; border-radius: 8px; background: var(--green); color: var(--white); text-decoration: none; font-weight: 600; }
+  .download-link:hover { background: var(--green-light); }
+  .download-link.secondary { background: var(--white); color: var(--green); border: 1px solid var(--border); }
+  .download-note { margin-top: 10px; color: var(--text-muted); font-size: 12px; }
+  @media (max-width: 860px) { .download-panel { margin-top: -20px; } }
 </style>
 <meta name="description" content="دليل معلم التقنية لتنظيم قوائم الطلبة ومجلداتهم وأعمالهم عبر BiTT Assistant.">
 <meta property="og:type" content="website">
@@ -539,6 +547,14 @@
         <div class="hero-sub">مساعد معلم التقنية لتنظيم مجلدات الطلبة وأعمالهم، وإدارة الشعب والأجهزة والمشاريع وبطاقات التقويم.</div>
       </div>
       <div class="hero-badge"><span class="hero-badge-num">0.1.0</span><span class="hero-badge-label">نسخة المعلمين</span></div>
+    </div>
+    <div class="download-panel" aria-label="تنزيل التطبيق">
+      <div class="download-title">نزّل التطبيق للمعلمين</div>
+      <div class="download-actions">
+        <a class="download-link" href="https://github.com/Bokaremo/BiTT-Assistant/releases/latest/download/BittAssistant-Setup.exe">⬇ تنزيل نسخة التثبيت</a>
+        <a class="download-link secondary" href="https://github.com/Bokaremo/BiTT-Assistant/releases/latest/download/BittAssistant-Portable.exe">تنزيل النسخة المحمولة</a>
+      </div>
+      <div class="download-note">يبدأ التنزيل مباشرة. إذا لم يبدأ أو ظهر خطأ 404، فملفات الإصدار لم تُرفق بعد في صفحة الإصدارات.</div>
     </div>
 
     <section class="section" id="overview">

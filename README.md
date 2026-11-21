@@ -1,5 +1,9 @@
 # BiTT Assistant للمعلم
 
+[🌐 افتح دليل المعلم التفاعلي](https://bokaremo.github.io/BiTT-Assistant/) · [تنزيل أحدث إصدار](https://github.com/Bokaremo/BiTT-Assistant/releases/latest)
+
+![BiTT Assistant — معاينة اجتماعية](docs/social-preview.jpg)
+
 مساعد معلم التقنية لتنظيم قوائم الطلبة ومجلداتهم وأعمالهم في مختبر الحاسوب.
 
 ## تنزيل التطبيق وتشغيله
@@ -43,3 +47,4 @@
 ## معلومات للمطورين
 
 راجع [DEVELOPMENT.md](DEVELOPMENT.md) لبناء النسخة العامة من المصدر.
+

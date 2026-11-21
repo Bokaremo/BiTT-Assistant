@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="biit-token" content="{{TOKEN}}">
+<link rel="icon" href="data:,">
+<title>تنظيم مجلدات الطلبة لمادة تقنية المعلومات · BiTT Assistant</title>
+<link rel="stylesheet" href="/static/css/fonts.css">
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <strong>مساعد معلم التقنية</strong>
+        <span>BiTT Assistant</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="أقسام التطبيق">
+      <button class="nav-item" data-view="home"><i data-icon="layout-dashboard"></i><span>الرئيسية</span></button>
+
+      <h2 class="nav-group">تجهيز المختبر</h2>
+      <button class="nav-item" data-view="location"><i data-icon="hard-drive"></i><span>موقع الإنشاء</span></button>
+      <button class="nav-item" data-view="roster"><i data-icon="users"></i><span>قوائم الطلبة</span></button>
+      <button class="nav-item" data-view="sections"><i data-icon="layers"></i><span>الصفوف والشعب</span></button>
+      <button class="nav-item" data-view="devices"><i data-icon="monitor"></i><span>توزيع الأجهزة</span></button>
+      <button class="nav-item" data-view="transfers"><i data-icon="arrow-right-left"></i><span>نقل مجلدات الطلبة</span></button>
+      <button class="nav-item" data-view="treegen"><i data-icon="folder-tree"></i><span>إنشاء المجلدات</span></button>
+      <button class="nav-item" data-view="deploy"><i data-icon="usb"></i><span>النشر والتجميع</span></button>
+
+      <h2 class="nav-group">أدوات مساعدة</h2>
+      <button class="nav-item" data-view="reports"><i data-icon="clipboard-list"></i><span>التقارير والتحليل</span></button>
+      <button class="nav-item" data-view="maintenance"><i data-icon="archive"></i><span>تهيئة وأرشفة</span></button>
+      <button class="nav-item" data-view="protection"><i data-icon="shield"></i><span>حماية المجلدات</span></button>
+      <button class="nav-item" data-view="projectForms"><i data-icon="clipboard-list"></i><span>استمارات المشاريع</span></button>
+      <button class="nav-item" data-view="studentCards"><i data-icon="id-card"></i><span>بطاقة أعمال الطالب</span></button>
+    </nav>
+
+    <div class="side-foot">
+      <button class="nav-item" data-view="settings"><i data-icon="settings"></i><span>الإعدادات</span></button>
+      <button class="nav-item" id="quit" hidden><i data-icon="power"></i><span>إغلاق التطبيق</span></button>
+      <p class="version">الإصدار {{VERSION}}</p>
+      <p class="app-credit">تطوير <strong>Mahmoud Ismaiel</strong> · 2025</p>
+    </div>
+  </aside>
+
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/static/js/icons.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

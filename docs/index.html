@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل تشغيل BiTT Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #103B36;
+    --gold: #E3A72F;
+    --green-light: #1a5249;
+    --green-muted: #5A7872;
+    --green-bg: #EEF3F2;
+    --gold-light: #FDF3DC;
+    --white: #FFFFFF;
+    --text: #0E2320;
+    --text-muted: #4A6460;
+    --border: #C8D8D6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    background: #F7FAF9;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .sidebar { display: none; }
+    .main { margin: 0; padding: 20px; }
+    .section { page-break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--green);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0 0 32px;
+  }
+
+  .sidebar-brand {
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 8px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 2px;
+  }
+
+  .nav-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 16px 20px 6px;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: background 0.15s, color 0.15s;
+    border-right: 3px solid transparent;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    border-right-color: var(--gold);
+  }
+
+  .nav-link svg { opacity: 0.7; flex-shrink: 0; }
+  .nav-link:hover svg, .nav-link.active svg { opacity: 1; }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 40px 48px;
+    max-width: 820px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green);
+    border-radius: 12px;
+    padding: 32px 36px;
+    color: var(--white);
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .hero-badge-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-badge-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .section-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--green);
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  /* ── STEPS ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 0 16px;
+    position: relative;
+  }
+
+  .step:not(:last-child) .step-line::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    right: 17px;
+    width: 2px;
+    height: calc(100% - 12px);
+    background: var(--border);
+  }
+
+  .step-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--green-bg);
+    border: 2px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-line {
+    position: relative;
+  }
+
+  .step-body {
+    padding: 6px 0 24px;
+  }
+
+  .step-title {
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── NOTE / WARNING / TIP ── */
+  .callout {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .callout-tip {
+    background: var(--gold-light);
+    border-right: 3px solid var(--gold);
+    color: #5a3e00;
+  }
+
+  .callout-warn {
+    background: #FEF3F2;
+    border-right: 3px solid #E04A3A;
+    color: #7a1f1f;
+  }
+
+  .callout-info {
+    background: var(--green-bg);
+    border-right: 3px solid var(--green);
+    color: var(--text);
+  }
+
+  .callout svg { flex-shrink: 0; margin-top: 2px; }
+
+  /* ── SCREENS ── */
+  .screens-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .screen-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .screen-header {
+    background: var(--green);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .screen-header-title {
+    color: var(--white);
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  .screen-header svg { color: var(--gold); flex-shrink: 0; }
+
+  .screen-body {
+    padding: 14px;
+    background: var(--white);
+  }
+
+  .screen-body p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .screen-body ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  .screen-body ul li {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding: 3px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .screen-body ul li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── REQUIREMENTS TABLE ── */
+  .req-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .req-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .req-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--green-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .req-icon svg { color: var(--green); }
+
+  .req-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .req-value {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ── FAQ ── */
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    padding: 14px 16px;
+    background: var(--white);
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--green);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .faq-q:hover { background: var(--green-bg); }
+
+  .faq-a {
+    padding: 12px 16px 14px;
+    background: var(--green-bg);
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    display: none;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  .faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+  .faq-arrow {
+    color: var(--green-muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  /* ── ERRORS TABLE ── */
+  .errors-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .errors-table th {
+    background: var(--green);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 12.5px;
+  }
+
+  .errors-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .errors-table tr:last-child td { border-bottom: none; }
+  .errors-table tr:nth-child(even) td { background: var(--green-bg); }
+
+  .err-code {
+    font-family: monospace;
+    font-size: 12px;
+    color: #c0392b;
+    background: #fef0ee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  .footer-meta {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    text-align: left;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; }
+    .main { padding: 24px 20px; }
+    .screens-grid { grid-template-columns: 1fr; }
+    .req-grid { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; }
+  }
+</style>
+<meta name="description" content="دليل معلم التقنية لتنظيم قوائم الطلبة ومجلداتهم وأعمالهم عبر BiTT Assistant.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BiTT Assistant | مساعد معلم التقنية">
+<meta property="og:description" content="دليل المعلم التفاعلي لتجهيز القوائم والأجهزة ومجلدات الطلبة والتقارير.">
+<meta property="og:url" content="https://bokaremo.github.io/BiTT-Assistant/">
+<meta property="og:image" content="https://bokaremo.github.io/BiTT-Assistant/social-preview.jpg">
+<meta property="og:image:width" content="1774">
+<meta property="og:image:height" content="887">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BiTT Assistant | مساعد معلم التقنية">
+<meta name="twitter:description" content="دليل المعلم التفاعلي لتجهيز القوائم والأجهزة ومجلدات الطلبة والتقارير.">
+<meta name="twitter:image" content="https://bokaremo.github.io/BiTT-Assistant/social-preview.jpg">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">BiTT Assistant</div>
+      <div class="brand-sub">دليل تشغيل النسخة العامة — 0.1.0</div>
+    </div>
+    <div class="nav-section-label">المحتويات</div>
+    <a class="nav-link active" href="#overview">نظرة عامة</a>
+    <a class="nav-link" href="#requirements">المتطلبات</a>
+    <a class="nav-link" href="#install">التثبيت والتشغيل</a>
+    <a class="nav-link" href="#first-use">الإعداد والاستخدام الأول</a>
+    <a class="nav-link" href="#screens">وظائف التطبيق</a>
+    <a class="nav-link" href="#privacy">البيانات والأمان</a>
+    <a class="nav-link" href="#faq">أسئلة شائعة</a>
+    <a class="nav-link" href="#errors">حل المشكلات</a>
+  </aside>
+  <main class="main">
+    <div class="hero">
+      <div>
+        <div class="hero-title">BiTT Assistant</div>
+        <div class="hero-sub">مساعد معلم التقنية لتنظيم مجلدات الطلبة وأعمالهم، وإدارة الشعب والأجهزة والمشاريع وبطاقات التقويم.</div>
+      </div>
+      <div class="hero-badge"><span class="hero-badge-num">0.1.0</span><span class="hero-badge-label">نسخة المعلمين</span></div>
+    </div>
+
+    <section class="section" id="overview">
+      <div class="section-header"><div class="section-num">1</div><h2 class="section-title">نظرة عامة</h2></div>
+      <p style="color:var(--text-muted);margin-bottom:14px">تطبيق ويندوز يعمل محليًا لمساعدة معلم تقنية المعلومات في تجهيز قوائم الشعب، توزيع الطلبة على أجهزة المختبر، إنشاء مجلداتهم، وإعداد نماذج العمل والتقارير.</p>
+      <div class="callout callout-info"><span>ابدأ من إعدادات التطبيق لتسجيل بيانات المدرسة والعام والفصل الدراسي، ثم حدد موقع إنشاء المجلدات قبل استيراد القوائم.</span></div>
+      <div class="req-grid">
+        <div class="req-item"><div><div class="req-label">إنشاء المجلدات</div><div class="req-value">شجرة كاملة أو شعبة واحدة</div></div></div>
+        <div class="req-item"><div><div class="req-label">قوائم الطلبة</div><div class="req-value">Excel وPDF المدعوم</div></div></div>
+        <div class="req-item"><div><div class="req-label">التشغيل</div><div class="req-value">نسخة تثبيت أو محمولة</div></div></div>
+        <div class="req-item"><div><div class="req-label">مكان البيانات</div><div class="req-value">على جهاز المعلم وموقع التخزين المختار</div></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="requirements">
+      <div class="section-header"><div class="section-num">2</div><h2 class="section-title">المتطلبات</h2></div>
+      <div class="req-grid">
+        <div class="req-item"><div><div class="req-label">نظام التشغيل</div><div class="req-value">Windows 10 أو Windows 11</div></div></div>
+        <div class="req-item"><div><div class="req-label">Python</div><div class="req-value">غير مطلوب لتشغيل ملفات EXE</div></div></div>
+        <div class="req-item"><div><div class="req-label">نافذة التطبيق</div><div class="req-value">WebView2 لعرض النافذة المدمجة</div></div></div>
+        <div class="req-item"><div><div class="req-label">مساحة التخزين</div><div class="req-value">بحسب عدد الطلبة والملفات</div></div></div>
+      </div>
+      <div class="callout callout-tip"><span>إذا لم تتوفر WebView2 فقد يفتح التطبيق في المتصفح بدل النافذة المستقلة. اختر موقعًا محليًا أو قرصًا متصلًا يمكن الكتابة عليه.</span></div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="section-header"><div class="section-num">3</div><h2 class="section-title">التثبيت والتشغيل</h2></div>
+      <div class="steps">
+        <div class="step"><div class="step-line"><div class="step-dot">1</div></div><div class="step-body"><div class="step-title">اختر طريقة التشغيل</div><div class="step-desc">ملف BittAssistant-Setup.exe يثبت التطبيق في ويندوز ويضيف اختصارًا. أما BittAssistant-Portable.exe فيعمل مباشرة من دون تثبيت.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">2</div></div><div class="step-body"><div class="step-title">شغّل النسخة العامة</div><div class="step-desc">نزّل ملفات النسخة العامة من قسم Releases في المستودع. لا تستخدم نسخة الماستر لأجهزة المعلمين.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">3</div></div><div class="step-body"><div class="step-title">أغلق التطبيق بطريقة صحيحة</div><div class="step-desc">عند تشغيل التطبيق في المتصفح استخدم زر «إغلاق التطبيق» داخل القائمة قبل إغلاق النافذة، حتى يتوقف الخادم المحلي.</div></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="first-use">
+      <div class="section-header"><div class="section-num">4</div><h2 class="section-title">الإعداد والاستخدام الأول</h2></div>
+      <div class="steps">
+        <div class="step"><div class="step-line"><div class="step-dot">1</div></div><div class="step-body"><div class="step-title">بيانات المدرسة والفصل</div><div class="step-desc">من «الإعدادات» أدخل اسم المدرسة والمعلم والعام الدراسي والفصل. تستخدم الشاشات والنماذج هذه القيم تلقائيًا.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">2</div></div><div class="step-body"><div class="step-title">حدد موقع إنشاء المجلدات</div><div class="step-desc">اختر القرص أو المجلد الذي ستنشأ داخله شجرة الطلبة. تأكد أن الموقع متاح وأن لديك صلاحية الكتابة عليه.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">3</div></div><div class="step-body"><div class="step-title">استورد قوائم الطلبة</div><div class="step-desc">استورد كشفًا مدعومًا لكل شعبة، أو استخدم الاستيراد الجماعي لقراءة عدة ملفات. راجع جميع الأسماء وصححها قبل الحفظ، بما فيها الأسماء التي لم تظهر عليها ملاحظة مراجعة.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">4</div></div><div class="step-body"><div class="step-title">راجع الصفوف والشعب</div><div class="step-desc">أنشئ الشعب التي تدرسها واربط كل كشف بالشعبة الصحيحة. رمز الشعبة الاختيارية في بعض كشوف الصفين 11 و12 لا يعني وجود شعبة أساسية إضافية؛ راجع التسمية قبل إنشاء المجلدات.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">5</div></div><div class="step-body"><div class="step-title">وزّع الطلبة على أجهزة المختبر</div><div class="step-desc">راجع التوزيع التلقائي، ثم عدّل جهاز الطالب عند الحاجة. احفظ التغييرات قبل إنشاء الشجرة أو تجهيز حزمة النشر.</div></div></div>
+        <div class="step"><div class="step-line"><div class="step-dot">6</div></div><div class="step-body"><div class="step-title">عاين الشجرة ثم أنشئها</div><div class="step-desc">اختر إنشاء الشجرة الشاملة أو شعبة واحدة، افحص العدد والمسار والمجلدات الجديدة والموجودة، ثم نفّذ الإنشاء. بعده يظهر المسار؛ اضغطه لفتح الشجرة في مستكشف الملفات.</div></div></div>
+      </div>
+      <div class="callout callout-warn"><span>الإنشاء لا يحذف المجلدات الموجودة ولا يستبدل محتوياتها. راجع المعاينة والمسار قبل التنفيذ.</span></div>
+    </section>
+
+    <section class="section" id="screens">
+      <div class="section-header"><div class="section-num">5</div><h2 class="section-title">وظائف التطبيق</h2></div>
+      <div class="screens-grid">
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">قوائم الطلبة والصفوف</span></div><div class="screen-body"><p>استيراد كشوف الشعب وربطها بالصف الصحيح، ثم مراجعة الأسماء والأعداد.</p><ul><li>استيراد ملف واحد أو عدة ملفات</li><li>تصحيح الأسماء وحفظها في بيانات الشعبة</li><li>مراجعة الشعب المحفوظة وتوزيعها</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">توزيع الأجهزة</span></div><div class="screen-body"><p>تعيين الأجهزة للطلبة ومراجعة التوزيع قبل إنشاء المجلدات أو نشر الحزمة.</p><ul><li>إعادة التوزيع أو التعديل اليدوي</li><li>إظهار الطلبة الذين لا يملكون جهازًا</li><li>نقل مجلد طالب بين أجهزة الشعبة وتحديث التوزيع المحفوظ؛ الحد الأقصى على الجهاز طالبين</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">إنشاء المجلدات وتخصيص الأيقونات</span></div><div class="screen-body"><p>أنشئ شجرة كل الشعب حسب الأجهزة أو مجلدات شعبة محددة.</p><ul><li>معاينة المسار وعدد المجلدات قبل التنفيذ</li><li>فتح مسار الشجرة بعد الإنشاء</li><li>اختيار أيقونات المجلدات وتطبيقها</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">النشر والتجميع</span></div><div class="screen-body"><p>جهّز حزمة لنسخ مجلدات الطلبة إلى أجهزة المختبر وجمع أعمالهم.</p><ul><li>النشر عبر مجلد شبكة أو فلاش USB</li><li>تشغيل أوامر النشر والتجميع عبر Veyon</li><li>استيراد وارد التجميع ومراجعة الأجهزة التي لم تسلّم</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">التقارير والتحليل</span></div><div class="screen-body"><p>التقارير مبنية على الشعب وتوزيع الأجهزة ووارد التجميع المحفوظ.</p><ul><li>دليل توزيع الطلبة على الأجهزة وطباعته</li><li>البحث عن طالب ومساره وجهازه</li><li>تقرير الأجهزة والملفات المستلمة</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">تهيئة وأرشفة</span></div><div class="screen-body"><p>الأرشفة تنقل أشجار الصفوف 1–11 إلى مجلد مؤرخ على القرص نفسه، ويبقى الصف 12 في موقعه. عاين قائمة النقل قبل التنفيذ.</p><ul><li>الأرشفة نقل وليست حذفًا</li><li>تهيئة التطبيق تمسح بيانات التطبيق المحلية؛ لا تحذف مجلدات الطلبة</li><li>أنشئ نسخة احتياطية من إعداداتك وقوائمك قبل التهيئة</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">استمارات المشاريع</span></div><div class="screen-body"><p>تُستخدم إعدادات العام والفصل العامة تلقائيًا. الأداة مخصصة للشعب التي تحتاج استمارات مشاريع.</p><ul><li>تخصيص أسماء المشروعات وصيغ الشعبة ورمز المجموعة</li><li>اختيار حجم المجموعة من طالب إلى خمسة</li><li>توزيع أبجدي تلقائي أو تحديد الأعضاء يدويًا؛ يرتب أعضاء كل مجموعة أبجديًا</li><li>معاينة الاستمارات وإنشاء ملفات Excel</li></ul></div></div>
+        <div class="screen-card"><div class="screen-header"><span class="screen-header-title">بطاقة أعمال الطالب</span></div><div class="screen-body"><p>أداة مستقلة تقرأ سجل التقويم بصيغة XLSX وتنشئ بطاقة لكل اسم ودرجة في السجل، دون الحاجة إلى قوائم الطلبة داخل التطبيق.</p><ul><li>معاينة البطاقات وتحرير الدرجات المتاحة</li><li>اختيار نمط بطاقة لكل شعبة</li><li>طباعة البطاقات أو حفظها PDF</li></ul></div></div>
+        <div class="screen-card" style="grid-column:1/-1"><div class="screen-header"><span class="screen-header-title">حماية المجلدات</span></div><div class="screen-body"><p>تمنع الحماية الحذف العرضي مع الإبقاء على القراءة والكتابة. اختر المجلد والحساب، ابدأ بمعاينة العملية، واحتفظ بنسخة من الأذونات قبل التعديل. تتطلب ميزة الحماية نظام ملفات NTFS أو ReFS؛ وقد يطلب Windows حسابًا مسؤولًا لتغيير الأذونات.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="section-header"><div class="section-num">6</div><h2 class="section-title">البيانات والأمان</h2></div>
+      <div class="callout callout-info"><span>قوائم الطلبة والإعدادات تحفظ محليًا على جهاز المعلم. مجلدات أعمال الطلبة تُنشأ في الموقع الذي تختاره. لا ترفع بيانات الطلبة إلى المستودع العام أو ترفقها عند الإبلاغ عن مشكلة.</span></div>
+      <p style="color:var(--text-muted);margin-top:12px">للحفاظ على بياناتك، احتفظ بنسخة احتياطية من إعدادات التطبيق وقوائم الشعب. عند الانتقال لجهاز آخر قد تحتاج إلى استيراد القوائم وإعادة تحديد موقع التخزين وتوزيع الأجهزة.</p>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-header"><div class="section-num">7</div><h2 class="section-title">أسئلة شائعة</h2></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل يحتاج المعلم إلى Python أو بناء التطبيق؟</div><div class="faq-a">لا. نزّل ملف التثبيت أو النسخة المحمولة من Releases وشغّله مباشرة. خطوات البناء للمطورين فقط.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل يحذف إنشاء الشجرة مجلدات الطلبة الموجودة؟</div><div class="faq-a">لا. الإنشاء يضيف المجلدات الناقصة ولا يحذف أو يستبدل محتويات المجلد الموجود.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">أين أرى الشجرة التي تم إنشاؤها؟</div><div class="faq-a">يظهر مسار الشجرة في شاشة الإنشاء بعد اكتمال العملية. اضغط المسار لفتحه في مستكشف الملفات.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل تحتاج بطاقة أعمال الطالب إلى استيراد قوائم التطبيق؟</div><div class="faq-a">لا. تستورد الأداة سجل التقويم XLSX وتستخرج البطاقات من الأسماء والدرجات الموجودة فيه مباشرةً.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">لماذا لم تعمل حماية المجلدات؟</div><div class="faq-a">تحقق من أن القرص NTFS أو ReFS وأن حساب Windows يملك صلاحية تعديل الأذونات. راجع معاينة الحماية وسجل نسخ الأذونات، واستخدم حسابًا مسؤولًا إذا طلب Windows ذلك.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">هل أستطيع استخدام النشر دون شبكة؟</div><div class="faq-a">نعم. أنشئ حزمة USB من شاشة النشر والتجميع، وشغّل ملفات النشر والتجميع من الفلاش وفق التعليمات المعروضة داخل التطبيق.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">كيف أبلغ عن مشكلة؟</div><div class="faq-a">استخدم «تواصل المطور» داخل التطبيق، واكتب الخطوات التي أدت للمشكلة وأرفق لقطة شاشة بعد إخفاء أسماء الطلبة أو أي معلومات شخصية غير لازمة. البريد: mahmoud.isma3el@gmail.com.</div></div>
+    </section>
+
+    <section class="section" id="errors">
+      <div class="section-header"><div class="section-num">8</div><h2 class="section-title">حل المشكلات</h2></div>
+      <table class="errors-table"><thead><tr><th>المشكلة</th><th>ما الذي تراجعه؟</th></tr></thead><tbody>
+        <tr><td>موقع الإنشاء غير محدد</td><td>افتح «موقع الإنشاء»، اختر قرصًا متاحًا، ثم ارجع إلى شاشة إنشاء المجلدات.</td></tr>
+        <tr><td>لا تظهر الشعبة في قائمة الإنشاء</td><td>تأكد من حفظ الشعبة وربط كشف الطلبة بها، ثم أعد فتح الشاشة.</td></tr>
+        <tr><td>أسماء أو شعب غير صحيحة</td><td>راجع كشف المصدر، وصحح الأسماء وربط الشعبة قبل إنشاء المجلدات.</td></tr>
+        <tr><td>فشل الحماية أو تعذر الوصول</td><td>افحص نظام الملفات وصلاحيات الحساب، ثم عاين العملية قبل المحاولة مرة أخرى.</td></tr>
+        <tr><td>لم تصل ملفات من أجهزة الطلبة</td><td>تحقق من تشغيل collect.bat على الأجهزة أو استيراد التجميع من الفلاش، ثم اضغط «تحديث» في شاشة النشر.</td></tr>
+      </tbody></table>
+    </section>
+
+    <footer class="page-footer">
+      <div><div class="footer-brand">BiTT Assistant · مساعد معلم التقنية</div><div style="font-size:11px;color:var(--text-muted);margin-top:4px">تطوير Mahmoud Ismaiel · 2025</div></div>
+      <div class="footer-meta">دليل تشغيل النسخة العامة · 0.1.0<br>Bokaremo IT Tools</div>
+    </footer>
+  </main>
+</div>
+<script>
+  const sections=document.querySelectorAll('.section[id]');
+  const navLinks=document.querySelectorAll('.nav-link');
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`.nav-link[href="#${entry.target.id}"]`);if(active)active.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
+

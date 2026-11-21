@@ -1,6 +1,6 @@
 """BiTT Assistant - مساعد معلم التقنية · Bokaremo IT Tools."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 APP_NAME = "BiTT Assistant"
 APP_NAME_AR = "مساعد معلم التقنية"
 

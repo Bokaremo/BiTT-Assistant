@@ -1,5 +1,5 @@
 ; Inno Setup 6.3+ script. Compiled by build.bat after PyInstaller.
-#define AppVer "0.1.0"
+#define AppVer "0.2.0"
 
 [Setup]
 AppId={{7B0C6E52-3A4F-4D1B-9E57-2C8A61F0B3D9}

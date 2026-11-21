@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="biit-token" content="{{TOKEN}}">
+<meta name="owner-mode" content="{{OWNER_MODE}}">
 <link rel="icon" href="data:,">
 <title>تنظيم مجلدات الطلبة لمادة تقنية المعلومات · BiTT Assistant</title>
 <link rel="stylesheet" href="/static/css/fonts.css">
@@ -39,10 +40,12 @@
       <button class="nav-item" data-view="protection"><i data-icon="shield"></i><span>حماية المجلدات</span></button>
       <button class="nav-item" data-view="projectForms"><i data-icon="clipboard-list"></i><span>استمارات المشاريع</span></button>
       <button class="nav-item" data-view="studentCards"><i data-icon="id-card"></i><span>بطاقة أعمال الطالب</span></button>
+      {{OWNER_NAV}}
     </nav>
 
     <div class="side-foot">
       <button class="nav-item" data-view="settings"><i data-icon="settings"></i><span>الإعدادات</span></button>
+      <button class="nav-item" data-view="about"><i data-icon="info"></i><span>حول والتحديثات</span></button>
       <button class="nav-item" id="quit" hidden><i data-icon="power"></i><span>إغلاق التطبيق</span></button>
       <p class="version">الإصدار {{VERSION}}</p>
       <p class="app-credit">تطوير <strong>Mahmoud Ismaiel</strong> · 2025</p>
@@ -56,5 +59,6 @@
 
 <script src="/static/js/icons.js"></script>
 <script src="/static/js/app.js"></script>
+{{OWNER_SCRIPT}}
 </body>
 </html>
